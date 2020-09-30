@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Grade Form {% endblock %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} text-center">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">RATE THE TASK</h5>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button class="btn btn-primary mt-3" type="submit">RATE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
